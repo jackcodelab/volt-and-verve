@@ -590,16 +590,7 @@
     <script>
 
 
-        const products = [
-            { id: 1, name: "Noise Cancelling Headphones", category: "tech", price: 299.00, rating: 5, image: "https://picsum.photos/seed/headphone/400/400", description: "Immersive sound with industry-leading noise cancellation. Perfect for deep work.", specs: "30hr battery life, Bluetooth 5.2, Active Noise Cancellation." },
-            { id: 2, name: "Mechanical Keyboard", category: "tech", price: 149.50, rating: 4, image: "https://picsum.photos/seed/keyboard/400/400", description: "Tactile switches for the ultimate typing experience. RGB backlit.", specs: "Cherry MX Red switches, Aluminum frame." },
-            { id: 3, name: "Smart Fitness Watch", category: "tech", price: 199.99, rating: 4, image: "https://picsum.photos/seed/watch/400/400", description: "Track your health, sleep, and workouts with precision.", specs: "Heart rate monitor, GPS, 5ATM water resistance." },
-            { id: 4, name: "4K Ultra HD Monitor", category: "tech", price: 450.00, rating: 5, image: "https://picsum.photos/seed/monitor/400/400", description: "Crystal clear display for designers and developers.", specs: "27 inch IPS panel, 144Hz refresh rate." },
-            { id: 5, name: "Ethiopian Yirgacheffe", category: "coffee", price: 18.00, rating: 5, image: "https://picsum.photos/seed/coffee1/400/400", description: "Bright and fruity notes with a tea-like body. Light roast.", specs: "Whole bean, 12oz, Light Roast." },
-            { id: 6, name: "Espresso Blend 'Midnight'", category: "coffee", price: 16.50, rating: 4, image: "https://picsum.photos/seed/coffee2/400/400", description: "Rich, bold, and chocolatey. Perfect for espresso machines.", specs: "Whole bean, 12oz, Dark Roast." },
-            { id: 7, name: "Precision Coffee Grinder", category: "coffee", price: 120.00, rating: 5, image: "https://picsum.photos/seed/grinder/400/400", description: "Consistent grind size is key to great coffee. Ceramic burrs.", specs: "40 settings, Conical ceramic burrs." },
-            { id: 8, name: "French Press Glass", category: "coffee", price: 25.00, rating: 4, image: "https://picsum.photos/seed/press/400/400", description: "Classic brewing method for full-bodied flavor.", specs: "Borosilicate glass, 34oz capacity." }
-        ];
+        let products = [];
 
         // --- STATE MANAGEMENT ---
         const state = {
@@ -614,7 +605,7 @@
         };
 
         // --- UTILS ---
-        const formatPrice = (price) => `$${price.toFixed(2)}`;
+        const formatPrice = (price) => `RS. ${price.toFixed(2)}`;
 
         const toast = {
             show(message, type = 'success') {
@@ -1068,17 +1059,22 @@
                     });
             }
         };
-
+        
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
-            shop.init();
-            cart.updateUI();
-
-            // Request Windows Notification Permission from the store owner
-            if (Notification.permission !== "granted" && Notification.permission !== "denied") {
-                Notification.requestPermission();
-            }
-        });    </script>
+            fetch('products.json')
+                .then(res => res.json())
+                .then(data => {
+                    products = data;
+                    shop.init();
+                    cart.updateUI();
+                })
+                .catch(err => {
+                    console.error("Failed to load catalog data:", err);
+                    toast.show("Error loading catalog data.", "info");
+                });
+        });
+    </script>
 </body>
 
 </html>
