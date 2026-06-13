@@ -344,7 +344,7 @@
                                     oninput="shop.handleSearch(this.value)"
                                     class="w-full border-gray-300 rounded-md shadow-sm focus:ring-brand-500 focus:border-brand-500 p-2 border">
                             </div>
-
+                            
                             <div class="mb-6">
                                 <h4 class="font-medium text-gray-900 mb-2">Category</h4>
                                 <div class="space-y-2">
@@ -359,6 +359,18 @@
                                             onchange="shop.handleFilter('category', 'coffee')"
                                             class="rounded border-gray-300 text-brand-600 focus:ring-brand-500 h-4 w-4">
                                         <span class="ml-2 text-sm text-gray-600">Coffee</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" value="audio"
+                                            onchange="shop.handleFilter('category', 'audio')"
+                                            class="rounded border-gray-300 text-brand-600 focus:ring-brand-500 h-4 w-4">
+                                        <span class="ml-2 text-sm text-gray-600">Audio</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" value="lifestyle"
+                                            onchange="shop.handleFilter('category', 'lifestyle')"
+                                            class="rounded border-gray-300 text-brand-600 focus:ring-brand-500 h-4 w-4">
+                                        <span class="ml-2 text-sm text-gray-600">Life Style & Fashion</span>
                                     </label>
                                 </div>
                             </div>
@@ -1059,7 +1071,7 @@
                     });
             }
         };
-        
+
         // --- INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
             fetch('products.json')
