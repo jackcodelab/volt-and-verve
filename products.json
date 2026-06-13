@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Mechanical Pro Keyboard V2",
+    "category": "tech",
+    "price": 570.00,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=500",
+    "description": "Premium customizable switches.",
+    "specs": "RGB backlit, hot-swappable tactile keys."
+  },
+  {
+    "id": 3,
+    "name": "Black aura Watch",
+    "category": "tech",
+    "price": 800.00,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1642984120374-da83fef6bb20?w=500",
+    "description": ".",
+    "specs": "Black, Wristwatch."
+  },
+  {
+    "id": 4,
+    "name": "Wireless Studio Headphones",
+    "category": "audio",
+    "price": 350.00,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+    "description": "Active noise-canceling over-ear headphones.",
+    "specs": "40hr battery life, Bluetooth 5.2"
+  }
+]
